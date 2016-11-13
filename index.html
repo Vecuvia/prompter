@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" value="width=device-width, initial-scale=1.0">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript" src="js/engine.js"></script>
+    <script type="text/javascript">
+      document.querySelector("body").appendChild(
+        document.createElement("p").appendChild(
+          document.createTextNode("This is a [simple|silly] test. Very [@0] indeed ($0)[#ignore this, it's a comment]".parseTemplate())
+        )
+      );
+    </script>
+  </body>
+</html>
