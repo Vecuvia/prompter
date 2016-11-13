@@ -1,0 +1,12 @@
+[
+  "\"@possessive:capitalize($0) body is healthy, but [he|she]'s just not there.\"",
+  "She flipped her hair and drawled...",
+  "\"What do you want from me?\", [she|he] asked...",
+  "I never hated something like I hated...",
+  "The only way to escape was [behind|in front of] [him|her]...",
+  "[He|She] took a deep breath and then leaped...",
+  "[He|She] ran down the road...",
+  "\"Anything would be better than that!\"",
+  "[He|She] scratched @lower:possessive($0) chin, pensive...",
+  "[He|She] sobbed softly..."
+]

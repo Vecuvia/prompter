@@ -2,6 +2,13 @@
   "jslint.options": {
     "regexp": true,
     "browser": true,
-    "devel": true
+    "devel": true,
+    "vars": true
+  },
+  "language": {
+    "javascript": {
+      "linting.prefer": "JSHint",
+      "linting.usePreferredOnly": true
+    }
   }
 }

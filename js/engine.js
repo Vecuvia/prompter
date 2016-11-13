@@ -3,14 +3,43 @@
 (function (global) {
   "use strict";
   
+  var functions = {
+    lower: function (param) {
+      return param.toLowerCase();
+    },
+    capitalize: function (param) {
+      return param.slice(0, 1).toUpperCase() + param.slice(1);
+    },
+    object: function (param) {
+      switch (param) {
+        case "he":   return "him";
+        case "she":  return "her";
+        case "they": return "them";
+        case "it":   return "it";
+      }
+    },
+    possessive: function (param) {
+      switch (param) {
+        case "he":   return "his";
+        case "she":  return "her";
+        case "they": return "their";
+        case "it":   return "its";
+      }
+    }
+  };
+  
   [
-    "subjects"
+    "subjects",
+    "first-line"
   ].forEach(function (element, index, array) {
     $.getJSON("data/" + element + ".json", function (data, status, xhr) {
       localStorage["data-" + element] = JSON.stringify(data);
     });
     $("#" + element).on("click", function (event) {
-      $("#prompt").html(JSON.parse(localStorage["data-" + element]).choice().parseTemplate());
+      $("#prompt").html(
+        JSON.parse(localStorage["data-" + element])
+        .choice().parseTemplate(functions)
+      );
     });
   });
 }(this.window));

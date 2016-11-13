@@ -22,7 +22,7 @@
   // - `[@[0-9]+]`: calls one of the earlier substitutions again and outputs 
   //   it (the substitution must be defined)
   // - `$[0-9]+`: outputs one of the earlier substitutions
-  String.prototype.parseTemplate = function () {
+  String.prototype.parseTemplate = function (functions) {
     var substitutions = [];
     return this.replace(/(\\)?(\[(@|#|hidden:)?(.*?)\])/g, function (match, escaped, whole, modifier, choices) {
       if (escaped) {
@@ -48,6 +48,15 @@
         return whole;
       }
       return substitutions[parseInt(group, 10)].choice;
+    }).replace(/(\\)?@(([a-z:]+)\((.+?)\))/g, function (match, escaped, whole, name, param) {
+      if (escaped) {
+        return whole;
+      }
+      var result = param, called = name.split(":");
+      for (var i = 0; i < called.length; i++) {
+        result = functions[called[i]](result);
+      }
+      return result;
     });
   };
 }(this.window));
