@@ -1,0 +1,31 @@
+html, body {
+  background-color: #555555;
+  color: #222222;
+  font-family: "Libre Baskerville", Baskerville, serif;
+}
+
+.well {
+  background-color: antiquewhite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 200px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.well p {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  padding: 1em;
+  text-align: center;
+}

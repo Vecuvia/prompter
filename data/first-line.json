@@ -11,5 +11,16 @@
   "[He|She] sobbed softly, thinking about...",
   "They say there are two types of people in the world...",
   "A leaf fluttered down to the ground...",
-  "The forest around [him|her] was silent..."
+  "The forest around [him|her] was silent...",
+  "Magic comes from within, not from without.",
+  "\"There's someone in my closet, and [he|she] wants to come out\"",
+  "The breeze rustled through [his|her] hair...",
+  "Night fell, and the moon came out...",
+  "[He|She] fumbled with the key in the dark...",
+  "\"I'm your [son|daughter]\"",
+  "\"I'm your [mother|father]\"",
+  "@possessive:capitalize($0) voice dripping with ice, [he|she] said...",
+  "It was a dark and stormy night...",
+  "A noise came from the [cellar|attic], making [him|her] jump...",
+  "[He|She] heard a whisper come from @lower:possessive($0) closet..."
 ]
