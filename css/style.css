@@ -22,10 +22,46 @@ html, body {
   flex-direction: column;
 }
 
-.well p {
+#prompt {
   -webkit-box-flex: 1;
   -ms-flex: 1 0;
   flex: 1 0;
   padding: 1em;
   text-align: center;
+  pointer-events: none;
+}
+
+/* Thanks to Damoin Yeatman's http://cssdeck.com/labs/styling-select-box-with-css3 */
+
+label.select-arrow {
+  position: relative;
+}
+
+label.select-arrow:after {
+  content: ">";
+  color: crimson;
+  -webkit-transform:rotate(90deg);
+  -moz-transform:rotate(90deg);
+  -ms-transform:rotate(90deg);
+  transform:rotate(90deg);
+  right: 2px;
+  top: 2px;
+  position: absolute;
+  pointer-events: none;
+}
+
+#kind {
+  width: 100%;
+  border: 0;
+  background-color: antiquewhite;
+  color: crimson;
+  font-size: 1em;
+  font-family: "Libre Baskerville", Baskerville, serif;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#kind:focus {
+  outline: none;
 }

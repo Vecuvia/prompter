@@ -9,16 +9,17 @@
   <body>
     <div class="well">
       <p id="prompt"></p>
-      <button id="subjects">Random subject</button>
-      <button id="first-line">First line</button>
+      <label class="select-arrow">
+        <select id="kind">
+          <option value="subjects">Random subject</option>
+          <option value="first-line">First line</option>
+        </select>
+      </label>
+      <!--button id="subjects">Random subject</button>-->
+      <!--<button id="generate">Generate prompt</button>-->
     </div>
     <script type="text/javascript" src="js/zepto.min.js"></script>
     <script type="text/javascript" src="js/templating.js"></script>
     <script type="text/javascript" src="js/engine.js"></script>
-    <script type="text/javascript">
-      /*$.getJSON("data/subjects.json", function (data) {
-        $("body").append($("<p>").html(data.choice().parseTemplate()));
-      });*/
-    </script>
   </body>
 </html>
