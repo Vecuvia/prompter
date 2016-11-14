@@ -4,8 +4,14 @@
   "use strict";
   
   var functions = {
+    silent: function (param) {
+      return "";
+    },
     lower: function (param) {
       return param.toLowerCase();
+    },
+    upper: function (param) {
+      return param.toUpperCase();
     },
     capitalize: function (param) {
       return param.slice(0, 1).toUpperCase() + param.slice(1);

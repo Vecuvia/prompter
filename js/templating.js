@@ -22,6 +22,8 @@
   // - `[@[0-9]+]`: calls one of the earlier substitutions again and outputs 
   //   it (the substitution must be defined)
   // - `$[0-9]+`: outputs one of the earlier substitutions
+  // - `@[a-z:]+(.+?)`: calls one or more functions, pipelining them over
+  //   the parameter
   String.prototype.parseTemplate = function (functions) {
     var substitutions = [];
     return this.replace(/(\\)?(\[(@|#|hidden:)?(.*?)\])/g, function (match, escaped, whole, modifier, choices) {

@@ -22,5 +22,7 @@
   "@possessive:capitalize($0) voice dripping with ice, [he|she] said...",
   "It was a dark and stormy night...",
   "A noise came from the [cellar|attic], making [him|her] jump...",
-  "[He|She] heard a whisper come from @lower:possessive($0) closet..."
+  "[He|She] heard a whisper come from @lower:possessive($0) closet...",
+  "It wasn't a good night to be out...",
+  "When [he|she] looked in @possessive($0) inbox, a hundred new [messages|emails] were waiting for @possessive($0)...",
 ]
