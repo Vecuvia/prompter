@@ -21,10 +21,10 @@
   //    1 or choice 2, and adds it to the `substitutions` list
   // - `[@[0-9]+]`: calls one of the earlier substitutions again and outputs 
   //   it (the substitution must be defined)
-  // - `$[0-9]+`: outputs one of the earlier substitutions
+  // - `$[\w\d]+`: outputs one of the earlier substitutions or a variable
   // - `@[a-z:]+(.+?)`: calls one or more functions, pipelining them over
   //   the parameter
-  String.prototype.parseTemplate = function (functions) {
+  String.prototype.parseTemplate = function (variables) {
     var substitutions = [];
     return this.replace(/(\\)?(\[(@|#|hidden:)?(.*?)\])/g, function (match, escaped, whole, modifier, choices) {
       if (escaped) {
@@ -45,18 +45,32 @@
         return "";
       }
       return choice;
-    }).replace(/(\\)?(\$([0-9]+))/g, function (match, escaped, whole, group) {
+    }).replace(/(\\)?(\$([\w\d]+))/g, function (match, escaped, whole, name) {
       if (escaped) {
         return whole;
       }
-      return substitutions[parseInt(group, 10)].choice;
+      var result, group = parseInt(name, 10);
+      if (!Number.isNaN(group)) {
+        result = substitutions[group].choice;
+      } else {
+        result = variables[name];
+      }
+      if (result !== undefined) {
+        return result;
+      }
+      return "";
     }).replace(/(\\)?@(([a-z:]+)\((.+?)\))/g, function (match, escaped, whole, name, param) {
       if (escaped) {
         return whole;
       }
       var result = param, called = name.split(":");
       for (var i = 0; i < called.length; i++) {
-        result = functions[called[i]](result);
+        if (variables[called[i]]) {
+          result = variables[called[i]](result);
+        } else {
+          result = "Error: no function '" + called[i] + "'";
+          break;
+        }
       }
       return result;
     });
