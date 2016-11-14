@@ -43,16 +43,10 @@
     });
   });
   
-  $(".well").on("click", function (event) {
+  $("#generate").on("click", function (event) {
     $("#prompt").html(
       JSON.parse(localStorage["data-" + $("#kind").val()])
         .choice().parseTemplate(functions)
     );
   });
-  /*$("#" + element).on("click", function (event) {
-    $("#prompt").html(
-      JSON.parse(localStorage["data-" + element])
-      .choice().parseTemplate(functions)
-    );
-  });*/
 }(this.window));
